@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mad-serverless-react-s23/notes-app/static/css/main.e5cdda46.css",
+    "main.js": "/mad-serverless-react-s23/notes-app/static/js/main.58766a6f.js",
+    "static/js/787.5cf4e54a.chunk.js": "/mad-serverless-react-s23/notes-app/static/js/787.5cf4e54a.chunk.js",
+    "index.html": "/mad-serverless-react-s23/notes-app/index.html",
+    "main.e5cdda46.css.map": "/mad-serverless-react-s23/notes-app/static/css/main.e5cdda46.css.map",
+    "main.58766a6f.js.map": "/mad-serverless-react-s23/notes-app/static/js/main.58766a6f.js.map",
+    "787.5cf4e54a.chunk.js.map": "/mad-serverless-react-s23/notes-app/static/js/787.5cf4e54a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e5cdda46.css",
+    "static/js/main.58766a6f.js"
+  ]
+}
