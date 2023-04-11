@@ -106,12 +106,16 @@ const App = () => {
       const notesData = await API.graphql({
         query: listNotes
       })
-      dispatch({ type: 'SET_NOTES', notes: notesData.data.listNotes.items })
+      const sortedNotes = notesData.data.listNotes.items.sort((a, b) => a.name.localeCompare(b.name))
+      dispatch({ type: 'SET_NOTES', notes: sortedNotes })
     } catch (err) {
       console.log('error: ', err)
       dispatch({ type: 'ERROR' })
     }
   }
+
+  const numCompletedNotes = state.notes.filter(note => note.completed).length;
+  const totalNotes = state.notes.length;
 
   useEffect(() => {
     fetchNotes()
@@ -130,6 +134,7 @@ const App = () => {
 
   const renderItem = (item) => {
     return (
+      
       <List.Item
   style={styles.item}
   actions={[
@@ -158,6 +163,7 @@ const App = () => {
 
     
     <div style={styles.container}>
+    
       <Input
   onChange={onChange}
   value={state.form.name}
@@ -172,10 +178,23 @@ const App = () => {
   name='description'
   style={styles.input}
 />
+
 <Button
   onClick={createNote}
   type="primary"
 >Create Note</Button>
+    <hr/>
+      <h2>
+        {state.loading ? 'Loading Notes...' : 'Here are your notes...'}
+      </h2>
+    <hr/>
+
+    <hr/>
+    
+      <h3>
+      <span>{`Completed ${numCompletedNotes} of ${totalNotes} notes`}</span>
+      </h3>
+    <hr/>
     <List
       loading={state.loading}
       dataSource={state.notes}
